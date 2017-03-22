@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="avoscloud-sdk-v3.15.9">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/avoscloud-sdk-v3.15.9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

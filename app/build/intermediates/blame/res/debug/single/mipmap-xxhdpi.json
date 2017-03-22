@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/junjianliu/app/github/TaskStack/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_logo.png",
+        "source": "/Users/junjianliu/app/github/TaskStack/app/src/main/res/mipmap-xxhdpi/ic_logo.png"
+    },
+    {
+        "merged": "/Users/junjianliu/app/github/TaskStack/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png",
+        "source": "/Users/junjianliu/app/github/TaskStack/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    }
+]

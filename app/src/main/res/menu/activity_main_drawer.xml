@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_task"
+            android:icon="@drawable/ic_task"
+            android:title="@string/task"/>
+        <item
+            android:id="@+id/nav_complete"
+            android:icon="@drawable/ic_complete"
+            android:title="@string/complete"/>
+        <item
+            android:id="@+id/nav_del_list"
+            android:icon="@drawable/ic_del_list"
+            android:title="@string/deltask"/>
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_about"
+                android:title="@string/ablout"/>
+        </menu>
+    </item>
+
+</menu>

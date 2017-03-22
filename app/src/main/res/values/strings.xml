@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">任务栈</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">切换视图</string>
+    <string name="add_task_title">请输入标题</string>
+    <string name="add_task_content">请输入内容</string>
+    <string name="action_save">保存</string>
+    <string name="save_success">保存成功</string>
+    <string name="task">任务列表</string>
+    <string name="deltask">已删除列表</string>
+    <string name="complete">已完成任务</string>
+    <string name="ablout">关于</string>
+</resources>

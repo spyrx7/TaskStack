@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "/Users/junjianliu/app/github/TaskStack/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_add.png",
+        "source": "/Users/junjianliu/app/github/TaskStack/app/src/main/res/drawable-hdpi/ic_add.png"
+    },
+    {
+        "merged": "/Users/junjianliu/app/github/TaskStack/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_more.png",
+        "source": "/Users/junjianliu/app/github/TaskStack/app/src/main/res/drawable-hdpi/ic_more.png"
+    },
+    {
+        "merged": "/Users/junjianliu/app/github/TaskStack/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_submit.png",
+        "source": "/Users/junjianliu/app/github/TaskStack/app/src/main/res/drawable-hdpi/ic_submit.png"
+    },
+    {
+        "merged": "/Users/junjianliu/app/github/TaskStack/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_del_list.png",
+        "source": "/Users/junjianliu/app/github/TaskStack/app/src/main/res/drawable-hdpi/ic_del_list.png"
+    },
+    {
+        "merged": "/Users/junjianliu/app/github/TaskStack/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_avatar.png",
+        "source": "/Users/junjianliu/app/github/TaskStack/app/src/main/res/drawable-hdpi/ic_avatar.png"
+    },
+    {
+        "merged": "/Users/junjianliu/app/github/TaskStack/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_task.png",
+        "source": "/Users/junjianliu/app/github/TaskStack/app/src/main/res/drawable-hdpi/ic_task.png"
+    },
+    {
+        "merged": "/Users/junjianliu/app/github/TaskStack/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_complete.png",
+        "source": "/Users/junjianliu/app/github/TaskStack/app/src/main/res/drawable-hdpi/ic_complete.png"
+    },
+    {
+        "merged": "/Users/junjianliu/app/github/TaskStack/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_about.png",
+        "source": "/Users/junjianliu/app/github/TaskStack/app/src/main/res/drawable-hdpi/ic_about.png"
+    }
+]

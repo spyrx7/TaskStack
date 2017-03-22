@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/junjianliu/app/github/TaskStack/app/build/intermediates/res/merged/debug/menu/activity_main_drawer.xml",
+        "source": "/Users/junjianliu/app/github/TaskStack/app/src/main/res/menu/activity_main_drawer.xml"
+    },
+    {
+        "merged": "/Users/junjianliu/app/github/TaskStack/app/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/Users/junjianliu/app/github/TaskStack/app/src/main/res/menu/main.xml"
+    },
+    {
+        "merged": "/Users/junjianliu/app/github/TaskStack/app/build/intermediates/res/merged/debug/menu/menu_save.xml",
+        "source": "/Users/junjianliu/app/github/TaskStack/app/src/main/res/menu/menu_save.xml"
+    }
+]
