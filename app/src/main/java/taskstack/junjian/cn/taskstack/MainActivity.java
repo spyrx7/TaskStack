@@ -150,6 +150,8 @@ public class MainActivity extends AppCompatActivity
             public void done(List<AVObject> list, AVException e) {
                 dialog.onDismiss(dialog.getDialog());
 
+                if(list == null) return;
+
                 List<TaskStackModel> data = DataToObjectUtils.getDate(list);
 
                 adapter = new ListAdapter(MainActivity.this,data,viewstatus);
@@ -237,11 +239,15 @@ public class MainActivity extends AppCompatActivity
 
         AVQuery<AVObject> avObject = new AVQuery("TaskStackModel");// 构建对象
         avObject.whereEqualTo("status",status);
+        avObject.whereEqualTo("userid", App.imei);
         avObject.orderByDescending("createdAt");
         avObject.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
                 refresh.setRefreshing(false);
+
+                if(list == null) return;
+
                 data = DataToObjectUtils.getDate(list);
                 adapter.clear();
 
