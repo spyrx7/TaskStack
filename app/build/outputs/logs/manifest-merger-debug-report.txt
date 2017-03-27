@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:2:1-35:12
+ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:2:1-48:12
 	package
 		ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:3:11-51
 		INJECTED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml
@@ -34,7 +34,7 @@ ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.x
 	android:name
 		ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:10:22-73
 application
-ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:13:5-33:19
+ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:13:5-46:19
 MERGED from [com.android.support:design:25.1.1] /Users/junjianliu/app/github/TaskStack/app/build/intermediates/exploded-aar/com.android.support/design/25.1.1/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:transition:25.1.1] /Users/junjianliu/app/github/TaskStack/app/build/intermediates/exploded-aar/com.android.support/transition/25.1.1/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:cardview-v7:25.1.1] /Users/junjianliu/app/github/TaskStack/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.1.1/AndroidManifest.xml:22:5-20
@@ -60,30 +60,46 @@ MERGED from [com.android.support:support-compat:25.1.1] /Users/junjianliu/app/gi
 		ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:19:9-40
 	android:name
 		ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:18:9-33
-activity#taskstack.junjian.cn.taskstack.MainActivity
+activity#taskstack.junjian.cn.taskstack.ui.WelcomeActivity
 ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:20:9-28:20
 	android:label
 		ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:22:13-45
 	android:name
-		ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:21:13-41
+		ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:21:13-47
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:23:13-27:29
+ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:24:13-27:29
 action#android.intent.action.MAIN
-ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:24:17-68
+ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:25:17-68
 	android:name
-		ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:24:25-66
+		ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:25:25-66
 category#android.intent.category.LAUNCHER
 ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:26:17-76
 	android:name
 		ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:26:27-74
+activity#taskstack.junjian.cn.taskstack.MainActivity
+ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:30:9-50
+	android:name
+		ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:30:19-47
 activity#taskstack.junjian.cn.taskstack.ui.AddTaskActivity
-ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:30:9-56
+ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:32:9-56
 	android:name
-		ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:30:19-53
+		ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:32:19-53
 activity#taskstack.junjian.cn.taskstack.ui.AboutActivity
-ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:32:9-53
+ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:34:9-53
 	android:name
-		ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:32:19-51
+		ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:34:19-51
+meta-data#UMENG_APPKEY
+ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:37:9-40:21
+	android:value
+		ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:39:13-53
+	android:name
+		ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:38:13-40
+meta-data#UMENG_CHANNEL
+ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:41:9-44:21
+	android:value
+		ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:43:13-34
+	android:name
+		ADDED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml:42:13-41
 uses-sdk
 INJECTED from /Users/junjianliu/app/github/TaskStack/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:design:25.1.1] /Users/junjianliu/app/github/TaskStack/app/build/intermediates/exploded-aar/com.android.support/design/25.1.1/AndroidManifest.xml:21:5-23:62

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="taskstack.junjian.cn.taskstack"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.02" >
 
     <uses-sdk
         android:minSdkVersion="15"
@@ -24,7 +24,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="taskstack.junjian.cn.taskstack.MainActivity"
+            android:name="taskstack.junjian.cn.taskstack.ui.WelcomeActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,8 +32,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="taskstack.junjian.cn.taskstack.MainActivity" />
         <activity android:name="taskstack.junjian.cn.taskstack.ui.AddTaskActivity" />
         <activity android:name="taskstack.junjian.cn.taskstack.ui.AboutActivity" />
+
+        <!-- Caution! Do not change this app key. It is only for demo usage. -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="58d364897f2c743433001175" >
+        </meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Umeng" >
+        </meta-data>
     </application>
 
 </manifest>

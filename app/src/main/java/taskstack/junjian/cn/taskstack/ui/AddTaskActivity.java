@@ -3,20 +3,26 @@ package taskstack.junjian.cn.taskstack.ui;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.DeleteCallback;
 import com.avos.avoscloud.SaveCallback;
 import com.roger.catloadinglibrary.CatLoadingView;
 
@@ -48,18 +54,26 @@ public class AddTaskActivity extends AppCompatActivity {
 
     private int STATUS_END = 3;        // 已归档
 
+    private int type = 0;
+
+    private String _tag = "null";
+
     private TaskStackModel entity;
 
+    private ImageView tag;
+
     
-    public static Intent newIntent(Context c , TaskStackModel entity){
+    public static Intent newIntent(Context c , TaskStackModel entity,int type){
         Intent intent = new Intent(c,AddTaskActivity.class);
         intent.putExtra("data",entity);
+        intent.putExtra("type",type);
         return intent;
     }
 
     private void bindIntent(){
        if(getIntent() != null){
-         this.entity = (TaskStackModel) getIntent().getSerializableExtra("data");
+           this.entity = (TaskStackModel) getIntent().getSerializableExtra("data");
+           this.type = getIntent().getIntExtra("type",0);
        }
     }
     
@@ -92,13 +106,32 @@ public class AddTaskActivity extends AppCompatActivity {
         if(id == R.id.menu_save){
             submit();
         }
-
+        if(id == R.id.menu_del){
+            del();
+        }
+        if(id == R.id.menu_finish){
+            Delete();
+        }
         return super.onOptionsItemSelected(item);
     }
 
    @Override
    public boolean onCreateOptionsMenu(Menu menu) {
-       getMenuInflater().inflate(R.menu.menu_save,menu);
+       switch (type){
+           case 0:
+               getMenuInflater().inflate(R.menu.menu_save,menu);
+               break;
+           case 1:
+               getMenuInflater().inflate(R.menu.menu_edit_save,menu);
+               break;
+           case 2:
+               getMenuInflater().inflate(R.menu.menu_del,menu);
+               break;
+           case 3:
+               getMenuInflater().inflate(R.menu.menu_edit_save,menu);
+               break;
+       }
+
        return super.onCreateOptionsMenu(menu);
    }
 
@@ -106,12 +139,20 @@ public class AddTaskActivity extends AppCompatActivity {
        dialog = new CatLoadingView();
        title = (EditText) findViewById(R.id.task_title);
        content = (EditText) findViewById(R.id.task_content);
+       tag = (ImageView) findViewById(R.id.tag);
 
        if(entity != null){
            setTitle("编辑");
 
            title.setText(entity.getName());
            content.setText(entity.getContent());
+
+           if(entity.getTagColor() != null && !entity.getTagColor().equals("null")){
+               _tag = entity.getTagColor();
+               tag.setBackgroundColor(Color.parseColor(_tag +""));
+           }
+
+
        }
    }
 
@@ -131,6 +172,9 @@ public class AddTaskActivity extends AppCompatActivity {
        temp.setStack(false);
        temp.setStatus(App.STATUS_RUNING);
        temp.setUserid(App.imei);
+       temp.setTagColor(_tag);
+
+       Log.e("TAG >>>", "submit: " + _tag);
 
        AVObject avObject;// 构建对象
 
@@ -147,6 +191,8 @@ public class AddTaskActivity extends AppCompatActivity {
        avObject.put("startdatetime",temp.getStartdatetime());
        avObject.put("enddatetime",temp.getEnddatetime());
        avObject.put("userid",temp.getUserid());
+       avObject.put("tagColor",temp.getTagColor());
+
 
        avObject.saveInBackground(new SaveCallback() {
            @Override
@@ -162,4 +208,42 @@ public class AddTaskActivity extends AppCompatActivity {
            }
        });
    }
+
+   public void onCheckTag(View v){
+       ImageView img = (ImageView) v;
+       _tag = img.getTag() + "";
+       tag.setBackgroundColor(Color.parseColor(img.getTag() + ""));
+   }
+
+    /**
+     *  永久删除
+     */
+    private void Delete(){
+
+        AVObject object = AVObject.createWithoutData("TaskStackModel", entity.getId());
+
+        object.deleteEventually(new DeleteCallback() {
+            @Override
+            public void done(AVException e) {
+                setResult(100);
+                finish();
+            }
+        });
+    }
+
+    private void del(){
+
+        AVObject object = AVObject.createWithoutData("TaskStackModel", entity.getId());
+
+        object.put("status", App.STATUS_DEL);
+
+        object.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(AVException e) {
+                setResult(100);
+                finish();
+            }
+        });
+    }
+
 }

@@ -8,7 +8,15 @@
         "source": "/Users/junjianliu/app/github/TaskStack/app/src/main/res/menu/main.xml"
     },
     {
+        "merged": "/Users/junjianliu/app/github/TaskStack/app/build/intermediates/res/merged/debug/menu/menu_del.xml",
+        "source": "/Users/junjianliu/app/github/TaskStack/app/src/main/res/menu/menu_del.xml"
+    },
+    {
         "merged": "/Users/junjianliu/app/github/TaskStack/app/build/intermediates/res/merged/debug/menu/menu_save.xml",
         "source": "/Users/junjianliu/app/github/TaskStack/app/src/main/res/menu/menu_save.xml"
+    },
+    {
+        "merged": "/Users/junjianliu/app/github/TaskStack/app/build/intermediates/res/merged/debug/menu/menu_edit_save.xml",
+        "source": "/Users/junjianliu/app/github/TaskStack/app/src/main/res/menu/menu_edit_save.xml"
     }
 ]

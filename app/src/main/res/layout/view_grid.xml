@@ -45,6 +45,11 @@
 
         </RelativeLayout>
 
+        <ImageView
+            android:id="@+id/tag"
+            android:layout_width="10dp"
+            android:layout_height="60dp"/>
+
 
     </android.support.v7.widget.CardView>
 

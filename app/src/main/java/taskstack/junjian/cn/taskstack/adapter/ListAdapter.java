@@ -2,6 +2,7 @@ package taskstack.junjian.cn.taskstack.adapter;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.DeleteCallback;
 import com.avos.avoscloud.SaveCallback;
 
 import java.util.List;
@@ -37,10 +39,17 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
 
     private boolean viewstatus = false;
 
-    public ListAdapter(Context context,List<TaskStackModel> data,boolean viewstatus) {
+    private int status = 0;
+
+    public ListAdapter(Context context,List<TaskStackModel> data,boolean viewstatus,int status) {
         this.context = context;
         this.data = data;
         this.viewstatus = viewstatus;
+        this.status = status;
+    }
+
+    public void setStatus(int status){
+        this.status = status;
     }
 
     public void setViewStatus(boolean viewstatus){
@@ -78,13 +87,41 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
         TaskStackModel temp = data.get(position);
         holder.textView.setText(temp.getName());
 
+        if(temp.getTagColor() != null && !temp.getTagColor().equals("null") && !temp.getTagColor().isEmpty()) {
+            holder.tag.setBackgroundColor(Color.parseColor(temp.getTagColor()));
+        }else{
+            holder.tag.setBackgroundColor(Color.WHITE);
+        }
+        switch (status){
+            case App.STATUS_RUNING:
+                holder.imgMore.setImageResource(R.drawable.ic_more);
+                break;
+            case App.STATUS_END:
+                holder.imgMore.setImageResource(R.drawable.ic_classify);
+                break;
+            case App.STATUS_DEL:
+                holder.imgMore.setImageResource(R.drawable.ic_del);
+                break;
+        }
+
         holder.imgMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 index = position;
-                showMore();
+                switch (status){
+                    case App.STATUS_RUNING:
+                        showMore();
+                        break;
+                    case App.STATUS_END:
+                        showDel();
+                        break;
+                    case App.STATUS_DEL:
+                        showDelete();
+                        break;
+                }
             }
         });
+
 
         holder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +148,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
         CardView cardview;
 
         TextView textTime;
+        ImageView tag;
 
         public ListViewHolder(View view) {
             super(view);
@@ -118,14 +156,19 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
             imgMore = (ImageView) view.findViewById(R.id.more);
             cardview = (CardView) view.findViewById(R.id.cardview);
 
+            tag = (ImageView) view.findViewById(R.id.tag);
+
             if(viewstatus){
                 textTime = (TextView) view.findViewById(R.id.texttime);
             }
+
+
+
         }
     }
 
-
     private void showMore(){
+
         String[] array = new String[]{"完成","删除"};
         AlertDialog.Builder alert = new AlertDialog.Builder(context);
         alert.setItems(array, new DialogInterface.OnClickListener() {
@@ -183,9 +226,53 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
 
     }
 
+    /**
+     *  完成状态下 删除到 删除列表
+     */
+    private void showDel(){
+        del();
+    }
+
+    /**
+     * 删除列表 永久删除
+     */
+    private void showDelete(){
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(context);
+        alert.setMessage("是否删除？");
+        alert.setNegativeButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Delete();
+            }
+        });
+
+        alert.setPositiveButton("取消", null);
+
+        alert.create().show();
+    }
+
+    /**
+     *  永久删除
+     */
+    private void Delete(){
+
+        TaskStackModel temp = data.get(index);
+
+        AVObject object = AVObject.createWithoutData("TaskStackModel", temp.getId());
+
+        object.deleteEventually(new DeleteCallback() {
+                @Override
+                public void done(AVException e) {
+                    data.remove(index);
+                    notifyDataSetChanged();
+                }
+        });
+    }
+
     private void actionActivity(){
         TaskStackModel temp = data.get(index);
-        context.startActivity(AddTaskActivity.newIntent(context,temp));
+        context.startActivity(AddTaskActivity.newIntent(context,temp,status));
     }
 
 }

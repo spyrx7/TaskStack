@@ -25,6 +25,7 @@ import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
 import com.roger.catloadinglibrary.CatLoadingView;
+import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,6 +83,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void init(){
+
+        MobclickAgent.onProfileSignIn(App.imei);
 
         dialog = new CatLoadingView();
 
@@ -154,7 +157,7 @@ public class MainActivity extends AppCompatActivity
 
                 List<TaskStackModel> data = DataToObjectUtils.getDate(list);
 
-                adapter = new ListAdapter(MainActivity.this,data,viewstatus);
+                adapter = new ListAdapter(MainActivity.this,data,viewstatus,status);
                 listView.setAdapter(adapter);
             }
         });
@@ -237,6 +240,8 @@ public class MainActivity extends AppCompatActivity
     private void reLoad(){
         refresh.setRefreshing(true);
 
+        Log.e("TAG >>>", "reLoad: status = " + status);
+
         AVQuery<AVObject> avObject = new AVQuery("TaskStackModel");// 构建对象
         avObject.whereEqualTo("status",status);
         avObject.whereEqualTo("userid", App.imei);
@@ -252,11 +257,12 @@ public class MainActivity extends AppCompatActivity
                 adapter.clear();
 
                 if(adapter == null) {
-                    adapter = new ListAdapter(MainActivity.this, data,viewstatus);
+                    adapter = new ListAdapter(MainActivity.this, data,viewstatus,status);
                     listView.setAdapter(adapter);
                 }else{
                     adapter.setDate(data);
                     adapter.notifyDataSetChanged();
+                    adapter.setStatus(status);
                 }
             }
         });
@@ -290,9 +296,10 @@ public class MainActivity extends AppCompatActivity
     private void changeView(){
         adapter.clear();
 
-        adapter = new ListAdapter(MainActivity.this, data,viewstatus);
+        adapter = new ListAdapter(MainActivity.this, data,viewstatus,status);
         listView.setAdapter(adapter);
 
         adapter.notifyDataSetChanged();
     }
+
 }

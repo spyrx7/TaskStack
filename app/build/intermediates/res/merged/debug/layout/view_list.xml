@@ -31,6 +31,12 @@
                 android:layout_alignParentRight="true"
                 android:src="@drawable/ic_more"/>
 
+            <ImageView
+                android:id="@+id/tag"
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                />
+
         </RelativeLayout>
 
 

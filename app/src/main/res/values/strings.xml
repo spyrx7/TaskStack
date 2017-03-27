@@ -13,4 +13,5 @@
     <string name="deltask">已删除列表</string>
     <string name="complete">已完成任务</string>
     <string name="ablout">关于</string>
+    <string name="action_del">删除</string>
 </resources>

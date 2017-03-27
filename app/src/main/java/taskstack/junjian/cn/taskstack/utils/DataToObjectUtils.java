@@ -40,6 +40,7 @@ public class DataToObjectUtils {
             temp.setUserid(obj.getString("userid"));
             temp.setStartdatetime(getTodayDateTime(obj.getCreatedAt()));
             temp.setEnddatetime(getTodayDateTime(obj.getUpdatedAt()));
+            temp.setTagColor(obj.getString("tagColor"));
             data.add(temp);
 
         }

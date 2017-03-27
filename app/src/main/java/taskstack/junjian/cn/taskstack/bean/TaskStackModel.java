@@ -15,9 +15,18 @@ public class TaskStackModel implements Serializable {
     private String enddatetime;
     private boolean isStack;
     private String content;
+    private String tagColor;
     private int status;
     private String updatetime;
     private String userid;
+
+    public String getTagColor() {
+        return tagColor;
+    }
+
+    public void setTagColor(String tagColor) {
+        this.tagColor = tagColor;
+    }
 
     public String getUpdatetime() {
         return updatetime;
