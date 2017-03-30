@@ -9,4 +9,4 @@
  >- 明确的列出自己将要做的事情
  >- 简易的操作自己的任务
 
- ![image](https://github.com/spyrx7/TaskStack/tree/master/file/taskStack.gif)  
+ ![image](https://github.com/spyrx7/TaskStack/blob/master/file/taskStach.gif)  
